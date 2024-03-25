@@ -1,84 +1,86 @@
-# 初识NodeHub
+English| [简体中文](./README_cn.md)
 
-NodeHub是地平线为机器人爱好者打造的智能机器人应用中心，旨在以更加简单、高效、开放的方式协助机器人爱好者开发自己的智能机器人，具有以下三个主要特性：
+# Getting Started with NodeHub
 
-- 快速部署，仅需一分钟即可完成Node部署，运行成功率达到100%。
+NodeHub is an intelligent robot application center created by Horizon for robot enthusiasts, aiming to assist robot enthusiasts in developing their own intelligent robots in a simpler, more efficient, and open way, with the following three main features:
 
-- 轻松拓展，无需复杂编程，通过配置组合不同Node，可实现高阶综合应用。
+- Quick Deployment, Node deployment can be completed in just one minute, with a success rate of 100%.
 
-- 开发分享，所有项目源码托管在github，所有用户可提交分享自己的项目。
+- Easy Expansion, no complex programming required, high-level integrated applications can be achieved by configuring and combining different Nodes.
 
-在快速入门环节，我们以[《小海龟绘画》](https://developer.horizon.cc/nodehubdetail/173268393141651466)Node为例讲解如何实现某个NodeHub项目的快速部署和体验。
+- Development Sharing, all project source code is hosted on GitHub, and all users can submit and share their projects.
 
-# 体验快速部署
+In the quick start section, we take the example of "[Turtle Drawing](https://developer.horizon.cc/nodehubdetail/173268393141651466)" Node to explain how to quickly deploy and experience a NodeHub project.
 
-## 文档结构
+# Experience Quick Deployment
 
-先来熟悉下NodeHub文档结构，方便我们快速在一个项目中找到需要的内容。NodeHub所有项目文档的一级目录采用同一规范，包含以下6个章节：
+## Document Structure
 
-- 功能介绍。该章节描述Node实现的主要功能。
+Let's first get familiar with the NodeHub document structure, making it easier for us to quickly find the needed content in a project. The primary directory of all NodeHub project documents follows the same specification, containing the following 6 sections:
 
-- 物料清单。该章节罗列Node中使用到的硬件设备型号和购买连接，方便感兴趣的开发者进行采购。
+- Introduction of Functionality. This section describes the main functions implemented by the Node.
 
-- 使用方式。该章节对Node的部署和运行方式进行详细的介绍，确保开发者能够根据描述成功运行Node。
+- Bill of Materials. This section lists the hardware device models and purchase links used in the Node, facilitating interested developers in purchasing.
 
-- 接口说明。该章节描述Node对外接口，方便开发者串联不同Node。
+- Usage Instructions. This section provides a detailed introduction to the deployment and operation of the Node, ensuring developers can successfully run the Node according to the description.
 
-- 参考资料。该章节用于放置前面章节中技术细节等的补充资料。
+- Interface Specifications. This section describes the external interfaces of the Node, facilitating developers to connect different Nodes.
 
-- 常见问题。汇总使用该Node经常出现的问题，提高使用效率。
+- References. This section is used to place supplementary materials such as technical details related to the previous sections.
 
-## 了解功能
+- FAQs. Summarizing common problems encountered when using this Node to improve efficiency.
 
-通过查看“功能介绍”章节可知，该Node主要功能为启动特定的画板，通过键盘控制小乌龟进行绘画。
+## Understanding Functionality
 
-## 核对物料
+By reviewing the "Introduction of Functionality" section, it is known that the main function of this Node is to start a specific drawing board and control a small turtle for drawing through the keyboard.
 
-通过查看“物料清单”章节可知，该Node在硬件上仅需要具备RDK X3派。
+## Verifying Materials
 
-## 部署体验
+By reviewing the "Bill of Materials" section, it is known that this Node only requires an RDK X3 board on the hardware side.
 
-通过浏览“使用方式”章节可知，在开始部署之前需要确保RDK X3使用的镜像桌面（Desktop）版本以及能够正常访问互联网。RDK X3镜像烧录方式、网络配置方法及IP地址查询可参考[RDK 用户手册](https://developer.horizon.cc/documents_rdk/category/installation)。
+## Deployment Experience
 
-如下图所示使用MobaXterm通过ssh连接RDK X3开发板（注意：IP需要替换为自己RDK X3开发板的IP地址）
+By browsing the "Usage Instructions" section, it is known that before starting the deployment, ensure that the RDK X3 uses the Desktop version of the image and can access the Internet normally. The burning method of RDK X3 image, network configuration, and IP address query can be referred to the [RDK User Manual](https://developer.horizon.cc/documents_rdk/category/installation).
+
+As shown in the image below, connect to the RDK X3 development board via ssh using MobaXterm (Note: Replace the IP with your own RDK X3 development board's IP address)
 
 ![MobaXterm](images/mobaxterm_ssh.gif)
 
-复制安装“安装first-node功能包”章节下的指令完成《小海龟绘画》Node部署
+Copy and install the instructions under the "Install the first-node package" section to complete the deployment of the "Turtle Drawing" Node
 
 ```shell
 sudo apt update
-sudo apt install -y tros-first-node
+```sudo apt install -y tros-first-node
 ```
 
-在当前MobaXterm终端中复制启动命令，启动《小海龟绘画》Node
+Copy and paste the startup command in the current MobaXterm terminal to launch the Turtle Graphics Node
 
 ```shell
-# 设置tros的环境变量
+# Set up the environment variables for tros
 source /opt/tros/setup.bash
 
-# 启动Turtlesim
+# Launch Turtlesim
 ros2 run turtlesim turtlesim_node
 
 ```
-执行命令后MobaXterm会弹出一个包含小海龟的蓝色背景的窗口如下图所示
+After executing the command, MobaXterm will pop up a window with a blue background containing a turtle as shown in the image below
 ![turtle_window](./images/turtle_window.png)
 
-在MobaXterm中按照之前的方式新打开一个SSH终端，在新的终端中运行启动键盘控制的命令
+In MobaXterm, open a new SSH terminal as before and run the command for keyboard control as follows
 
 ```shell
-# 设置tros的环境变量
+# Set up the environment variables for tros
 source /opt/tros/setup.bash
 
-# 启动OriginBot
- ros2 run turtlesim turtle_teleop_key
+# Start OriginBot
+ros2 run turtlesim turtle_teleop_key
 ```
-执行命令后可看到如下日志
+Upon executing the command, you will see the following logs
 ```shell
-root@ubuntu:~# # 设置tros的环境变量
+root@ubuntu:~# #设置tros的环境变量
 root@ubuntu:~# source /opt/tros/setup.bash
 root@ubuntu:~#
-root@ubuntu:~# # 启动OriginBot
+root@ubuntu:~# #启动OriginBot
 root@ubuntu:~#  ros2 run turtlesim turtle_teleop_key
 
 Reading from keyboard
@@ -87,16 +89,14 @@ Use arrow keys to move the turtle.
 Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
 'Q' to quit.
 ```
-在当前终端中根据提示使用键盘“上、下、左、右”按钮控制小海龟移动，使用“G|B|V|C|D|E|R|T”控制小乌龟旋转角度进行绘画。
+In the current terminal, use the "up, down, left, right" keys on your keyboard as prompted to control the movement of the turtle and use "G|B|V|C|D|E|R|T" to control the turtle's rotation angles for drawing.
 
-至此一个Node的部署和运行就完成了。
+With that, the deployment and operation of a Node is complete.
 
-# 拓展功能
+# Extension Functions
 
-如何将不同功能的Node组合以实现更加高阶的功能呢？
+How can different Nodes be combined to achieve more advanced functions?
 
-Node之间通常以节点发布/订阅的形式来进行通信，即Node可以向某个节点发布消息实现消息的发送，也可以向某个节点订阅来实现消息的接收。
+Nodes typically communicate with each other through a publish/subscribe mechanism, where a Node can publish messages to another node for message transmission and can also subscribe to messages from another node for message reception.
 
-在《小海龟绘画》Node“接口说明”章节罗列出了该Node发布/订阅消息的情况，这里《小海龟绘画》Node仅有订阅话题名字为/turtle1/cmd_vel，类型为geometry_msgs/msg/Twist，用途是控制小海龟的运动。如果想要控制小海龟移动，可以发布geometry_msgs/msg/Twist类型消息至/turtle1/cmd_vel节点
-
-在进阶教程[《深度学习巡线机器人》](developer.horizon.cc)中，将以具体案例介绍如何实现多个Node的串联。
+In the "Interface Specification" section of the "Turtle Graphics" Node, the publishing/subscribing message scenarios are listed. For this Turtle Graphics Node, the only subscription topic is /turtle1/cmd_vel, of type geometry_msgs/msg/Twist, used to control the movement of the turtle. To control the movement of the turtle, you can publish messages of type geometry_msgs/msg/Twist to the /turtle1/cmd_vel node.In the advanced tutorial "[Deep Learning Line-following Robot](developer.horizon.cc)", specific cases will be introduced to demonstrate how to connect multiple nodes in series.
