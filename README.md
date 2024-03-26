@@ -50,7 +50,7 @@ Copy and install the instructions under the "Install the first-node package" sec
 
 ```shell
 sudo apt update
-```sudo apt install -y tros-first-node
+sudo apt install -y tros-first-node
 ```
 
 Copy and paste the startup command in the current MobaXterm terminal to launch the Turtle Graphics Node
