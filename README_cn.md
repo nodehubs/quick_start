@@ -48,36 +48,61 @@ NodeHub是地平线为机器人爱好者打造的智能机器人应用中心，�
 
 复制安装“安装first-node功能包”章节下的指令完成《小海龟绘画》Node部署
 
-```shell
+tros foxy 版本 
+```bash
 sudo apt update
 sudo apt install -y tros-first-node
+```
+tros humble 版本
+```bash
+sudo apt update
+sudo apt install -y tros-humble-first-node
 ```
 
 在当前MobaXterm终端中复制启动命令，启动《小海龟绘画》Node
 
-```shell
+tros foxy 版本 
+```bash
 # 设置tros的环境变量
 source /opt/tros/setup.bash
 
 # 启动Turtlesim
 ros2 run turtlesim turtlesim_node
-
 ```
+tros humble 版本
+```bash
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
+
+# 启动Turtlesim
+ros2 run turtlesim turtlesim_node
+```
+
 执行命令后MobaXterm会弹出一个包含小海龟的蓝色背景的窗口如下图所示
 ![turtle_window](./images/turtle_window.png)
 
 在MobaXterm中按照之前的方式新打开一个SSH终端，在新的终端中运行启动键盘控制的命令
 
-```shell
+tros foxy 版本 
+```bash
 # 设置tros的环境变量
 source /opt/tros/setup.bash
 
-# 启动OriginBot
- ros2 run turtlesim turtle_teleop_key
+# 启动Turtlesim
+ros2 run turtlesim turtle_teleop_key
 ```
-执行命令后可看到如下日志
+tros humble 版本
+```bash
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
+
+# 启动Turtlesim
+ros2 run turtlesim turtle_teleop_key
+```
+
+如foxy版本执行命令后可看到如下日志
 ```shell
-root@ubuntu:~# # 设置tros的环境变量
+root@ubuntu:~# # 设置tros foxy的环境变量
 root@ubuntu:~# source /opt/tros/setup.bash
 root@ubuntu:~#
 root@ubuntu:~# # 启动OriginBot

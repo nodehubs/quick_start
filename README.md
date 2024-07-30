@@ -48,36 +48,62 @@ As shown in the image below, connect to the RDK X3 development board via ssh usi
 
 Copy and install the instructions under the "Install the first-node package" section to complete the deployment of the "Turtle Drawing" Node
 
-```shell
+tros foxy： 
+```bash
 sudo apt update
 sudo apt install -y tros-first-node
+```
+tros humble：
+```bash
+sudo apt update
+sudo apt install -y tros-humble-first-node
 ```
 
 Copy and paste the startup command in the current MobaXterm terminal to launch the Turtle Graphics Node
 
-```shell
+tros foxy： 
+```bash
 # Set up the environment variables for tros
 source /opt/tros/setup.bash
 
 # Launch Turtlesim
 ros2 run turtlesim turtlesim_node
-
 ```
+tros humble：
+```bash
+# Set up the environment variables for tros
+source /opt/tros/humble/setup.bash
+
+# Launch Turtlesim
+ros2 run turtlesim turtlesim_node
+```
+
 After executing the command, MobaXterm will pop up a window with a blue background containing a turtle as shown in the image below
 ![turtle_window](./images/turtle_window.png)
 
 In MobaXterm, open a new SSH terminal as before and run the command for keyboard control as follows
 
-```shell
+
+tros foxy： 
+```bash
 # Set up the environment variables for tros
 source /opt/tros/setup.bash
 
-# Start OriginBot
+# Launch Turtlesim
 ros2 run turtlesim turtle_teleop_key
 ```
+tros humble：
+```bash
+# Set up the environment variables for tros
+source /opt/tros/humble/setup.bash
+
+# Launch Turtlesim
+ros2 run turtlesim turtle_teleop_key
+```
+
 Upon executing the command, you will see the following logs
 ```shell
-root@ubuntu:~# #设置tros的环境变量
+root@ubuntu:~# #设置tros foxy的环境变量
 root@ubuntu:~# source /opt/tros/setup.bash
 root@ubuntu:~#
 root@ubuntu:~# #启动OriginBot
